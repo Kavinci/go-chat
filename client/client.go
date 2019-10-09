@@ -1,9 +1,20 @@
 package main
 
-import "fyne.io/fyne/widget"
+import (
+	"log"
+	"net/url"
+
+	"fyne.io/fyne/app"
+	"fyne.io/fyne/widget"
+)
 
 func main() {
-	app := app.new()
+	app := app.New()
+	signupURL, err := url.Parse("https://kentutterback.com/GoChat/SignUp")
+	if err != nil {
+		log.Fatal(err)
+	}
+
 	app.Icon()
 	window := app.NewWindow("GoChat")
 	window.SetContent(widget.NewVBox(
@@ -12,7 +23,7 @@ func main() {
 
 		}),
 		widget.NewButton("Sign up", func() {
-			app.OpenURL()
+			app.OpenURL(signupURL)
 		}),
 		widget.NewButton("Cancel", func() {
 
