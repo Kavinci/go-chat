@@ -2,31 +2,19 @@ package main
 
 import (
 	"log"
-	"net/url"
 
-	"fyne.io/fyne/app"
-	"fyne.io/fyne/widget"
+	"github.com/sciter-sdk/go-sciter"
+	"github.com/sciter-sdk/go-sciter/window"
 )
 
 func main() {
-	app := app.New()
-	signupURL, err := url.Parse("https://kentutterback.com/GoChat/SignUp")
+	w, err := window.New(sciter.SW_TITLEBAR|sciter.SW_RESIZEABLE|sciter.SW_CONTROLS|sciter.SW_MAIN|sciter.SW_ENABLE_DEBUG, nil)
 	if err != nil {
 		log.Fatal(err)
 	}
-
-	app.Icon()
-	window := app.NewWindow("GoChat")
-	window.SetContent(widget.NewVBox(
-		widget.NewLabel("Sign in to GoChat"),
-		widget.NewButton("Log in", func() {
-
-		}),
-		widget.NewButton("Sign up", func() {
-			app.OpenURL(signupURL)
-		}),
-		widget.NewButton("Cancel", func() {
-
-		}),
-	))
+	// log.Printf("handle: %v", w.Handle)
+	w.LoadFile("login.html")
+	w.SetTitle("Login")
+	w.Show()
+	w.Run()
 }

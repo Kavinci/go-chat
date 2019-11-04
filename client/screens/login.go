@@ -1,5 +1,0 @@
-package screens
-
-func loginFactory() {
-
-}
