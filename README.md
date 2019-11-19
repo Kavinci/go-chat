@@ -22,7 +22,8 @@ Go Chat is a cross platform chat application written in Golang. Includes client 
 Building is done using fyne-cross to maintain the cross-platform nature of this app.
 
 ### Chat Client
-fyne-cross --targets=windows/amd64 client/client.go
+Sciter provides the frontend rendering
 
 ### Chat Server
-fyne-cross --targets=windows/amd64 server/server.go
+Simple HTML server for admin configuration
+Postgres Database
